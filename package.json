@@ -1,0 +1,37 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "12.18.0",
+    "npm": "6.14.4"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "env-cmd -f config/keys.env nodemon index.js -e env,js,json",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.698.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "cookie-session": "^1.4.0",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "localtunnel": "^2.0.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.18",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "path-parser": "^6.1.0",
+    "redis": "^3.0.2",
+    "sendgrid": "^5.2.3",
+    "stripe": "^8.60.0"
+  }
+}
